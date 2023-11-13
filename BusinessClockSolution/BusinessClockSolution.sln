@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34221.43
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessClockApi", "BusinessClockApi\BusinessClockApi.csproj", "{036E3054-18C4-46C0-A3FE-F98BD2F76626}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{036E3054-18C4-46C0-A3FE-F98BD2F76626}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{036E3054-18C4-46C0-A3FE-F98BD2F76626}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{036E3054-18C4-46C0-A3FE-F98BD2F76626}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{036E3054-18C4-46C0-A3FE-F98BD2F76626}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {243A5F5E-0F9A-4CE1-9017-716E59566C7B}
+	EndGlobalSection
+EndGlobal
