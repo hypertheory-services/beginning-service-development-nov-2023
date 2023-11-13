@@ -1,0 +1,1 @@
+CREATE DATABASE issues_data

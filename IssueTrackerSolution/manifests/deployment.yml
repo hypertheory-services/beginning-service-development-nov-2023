@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: issues-api
+spec:
+  selector:
+    matchLabels:
+      app: issues-api
+  template:
+    metadata:
+      labels:
+        app: issues-api
+    spec:
+      containers:
+      - name: issues-api
+        image: jeffrygonzalez/issue-tracker-aug-2023:latest
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        env:
+          - name: business-clock-api
+            value: http://business-clock-api-service
+          - name: ConnectionStrings__data
+            value: "server=127.0.0.1;Database=issues_data;User Id=user;Password=password"
+        ports:
+        - containerPort: 80

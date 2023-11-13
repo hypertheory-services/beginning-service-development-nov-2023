@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: issues-api-service
+spec:
+  selector:
+    app: issues-api
+  ports:
+  - port: 80
+    targetPort: 80
