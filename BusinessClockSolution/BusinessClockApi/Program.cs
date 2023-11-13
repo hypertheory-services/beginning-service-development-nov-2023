@@ -14,8 +14,16 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.MapGet("issue-tracker/oncall-developer", () =>
+{
+    var response = new OnCallDeveloperResponse("Bob Smith", "bob@aol.com", "555-1212");
+    return Results.Ok(response);
+});
 
 // another change
 
-app.Run();
+app.Run(); // starts a web server that listens on the network.
 
+public partial class Program { }
+
+public record OnCallDeveloperResponse(string Name, string EmailAddress, string PhoneNumber);
