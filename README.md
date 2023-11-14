@@ -17,3 +17,5 @@
 ### Resources and Links and Stuff
 
 [Integraton Testing Without Alba](https://learn.microsoft.com/en-us/aspnet/core/test/integration-tests?view=aspnetcore-7.0)
+[Containers for Developers - Free Course](https://hypertheory.podia.com/view/courses/containers-for-developers)
+[Developer Skills - Getting Rad with Visual Studio](https://hypertheory.podia.com/view/courses/mastering-your-development-tools-visual-studio)
