@@ -47,6 +47,6 @@ public class BusinessClockTests
         fakeClock.GetCurrent().Returns(DateTime.Parse(dateTime));
         var clock = new StandardBusinessClock(fakeClock);
 
-        Assert.True(clock.IsOpen());
+        Assert.False(clock.IsOpen());
     }
 }
