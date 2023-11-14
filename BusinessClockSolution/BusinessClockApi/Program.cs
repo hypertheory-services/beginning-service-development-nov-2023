@@ -9,7 +9,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<OnCallDeveloperLookup>();
-builder.Services.AddScoped<IProvideTheBusinessClock, StandardBusinessClock>();
+builder.Services.AddScoped<IProvideTheBusinessClock, SpecialBusinessClock>();
 builder.Services.AddScoped<ISystemTime, SystemTime>();
 
 var app = builder.Build();
