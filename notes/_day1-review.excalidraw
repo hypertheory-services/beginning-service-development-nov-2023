@@ -1,0 +1,48 @@
+{
+  "type": "excalidraw",
+  "version": 2,
+  "source": "https://marketplace.visualstudio.com/items?itemName=pomdtr.excalidraw-editor",
+  "elements": [
+    {
+      "id": "6LOATyEFHQhlaz0pjUtLF",
+      "type": "text",
+      "x": 500,
+      "y": 173.20000000000005,
+      "width": 1624.21875,
+      "height": 1310.4,
+      "angle": 0,
+      "strokeColor": "#1e1e1e",
+      "backgroundColor": "transparent",
+      "fillStyle": "hachure",
+      "strokeWidth": 1,
+      "strokeStyle": "solid",
+      "roughness": 1,
+      "opacity": 100,
+      "groupIds": [],
+      "frameId": null,
+      "roundness": null,
+      "seed": 105394456,
+      "version": 2014,
+      "versionNonce": 797850984,
+      "isDeleted": false,
+      "boundElements": null,
+      "updated": 1699969375954,
+      "link": null,
+      "locked": false,
+      "text": "Services:\n    - Organized around business capabilities.\n    - Must be independently deployable by the team that owns them.\n        - Are built iteratively based on need. \n    - Work within a \"bounded context\":\n        - Bounded is \"quiet quitting\" - do *your* job.\n        - Context is where things \"make sense\".\n        - Unrelated complexity in your bounded context is *corruption*.\n        - You may need an \"anti-corruption* layer.\n    - Own a business state/process.\n    - Are \"late bound\":\n        - The implementation changes at a different rate than it's interface/contract.\n        - This is why we use them. \"My application needs the functionality of this thing NOW\".\n            - Packages (NPM, Nuget, etc.) are early bound. \"I will rely on the functionality THEN\".\n        - The contracts are the point of coupling. Don't over-promise. \n        - Consider Customer/Supplier Relationships as the starting point.\n        - Evolve, if needed, to an \"Open Host\". \n\n12 Factor App:\n    - An \"Application\" is a code base, which means it is a unit of deployment.\n        - \"One app, many deployments\"\n    - Dependencies are explicitly declared\n        - .csproj has list of packages. \n        - No \"libs\" folder.\n    - Configuration is what changes per environment, and is provided by the environment.\n    - Backing Services\n        - Treat backing services as attached resources.\n        - A tight dependency on a *specific* backing service is an anti-pattern.\n        - \"If my config changes to a different backing service in a different environment\n           and my app still 'works' that is a win!\"\n        - Hint: Will our business clock work in a different environment?\n    - Processes\n        - \"Execute the app as on or more stateless processes\"\n        - The state (the part that changes) should be clearly demarcated as an external\n          backing service.\n    - Port Binding\n        - The only thing promised in your environment is the ability to expose your application\n          functionality through a network port.\n",
+      "fontSize": 28,
+      "fontFamily": 3,
+      "textAlign": "left",
+      "verticalAlign": "top",
+      "baseline": 1303,
+      "containerId": null,
+      "originalText": "Services:\n    - Organized around business capabilities.\n    - Must be independently deployable by the team that owns them.\n        - Are built iteratively based on need. \n    - Work within a \"bounded context\":\n        - Bounded is \"quiet quitting\" - do *your* job.\n        - Context is where things \"make sense\".\n        - Unrelated complexity in your bounded context is *corruption*.\n        - You may need an \"anti-corruption* layer.\n    - Own a business state/process.\n    - Are \"late bound\":\n        - The implementation changes at a different rate than it's interface/contract.\n        - This is why we use them. \"My application needs the functionality of this thing NOW\".\n            - Packages (NPM, Nuget, etc.) are early bound. \"I will rely on the functionality THEN\".\n        - The contracts are the point of coupling. Don't over-promise. \n        - Consider Customer/Supplier Relationships as the starting point.\n        - Evolve, if needed, to an \"Open Host\". \n\n12 Factor App:\n    - An \"Application\" is a code base, which means it is a unit of deployment.\n        - \"One app, many deployments\"\n    - Dependencies are explicitly declared\n        - .csproj has list of packages. \n        - No \"libs\" folder.\n    - Configuration is what changes per environment, and is provided by the environment.\n    - Backing Services\n        - Treat backing services as attached resources.\n        - A tight dependency on a *specific* backing service is an anti-pattern.\n        - \"If my config changes to a different backing service in a different environment\n           and my app still 'works' that is a win!\"\n        - Hint: Will our business clock work in a different environment?\n    - Processes\n        - \"Execute the app as on or more stateless processes\"\n        - The state (the part that changes) should be clearly demarcated as an external\n          backing service.\n    - Port Binding\n        - The only thing promised in your environment is the ability to expose your application\n          functionality through a network port.\n",
+      "lineHeight": 1.2
+    }
+  ],
+  "appState": {
+    "gridSize": null,
+    "viewBackgroundColor": "#ffffff"
+  },
+  "files": {}
+}
