@@ -1,6 +1,8 @@
 ﻿
 using Alba;
 using BusinessClockApi.Models;
+using Microsoft.Extensions.DependencyInjection;
+using NSubstitute;
 
 namespace BusinessClockApi.ContractTests;
 public class GettingOnCallDeveloper
@@ -10,7 +12,15 @@ public class GettingOnCallDeveloper
     public async Task DuringBusinessHours()
     {
 
-        var host = await AlbaHost.For<Program>();
+        var host = await AlbaHost.For<Program>(config =>
+        {
+            config.ConfigureServices(sp =>
+            {
+                var fakeClock = Substitute.For<IProvideTheBusinessClock>();
+                fakeClock.IsOpen().Returns(true);
+                sp.AddScoped<IProvideTheBusinessClock>(sp => fakeClock);
+            });
+        });
 
         var response = await host.Scenario(api =>
         {
@@ -31,7 +41,15 @@ public class GettingOnCallDeveloper
     public async Task OutsideBusinessHours()
     {
 
-        var host = await AlbaHost.For<Program>();
+        var host = await AlbaHost.For<Program>(config =>
+        {
+            config.ConfigureServices(sp =>
+            {
+                var fakeClock = Substitute.For<IProvideTheBusinessClock>();
+                fakeClock.IsOpen().Returns(false);
+                sp.AddScoped<IProvideTheBusinessClock>(sp => fakeClock);
+            });
+        });
 
         var response = await host.Scenario(api =>
         {
