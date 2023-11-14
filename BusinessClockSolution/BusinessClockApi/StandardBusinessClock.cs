@@ -1,6 +1,6 @@
 ﻿namespace BusinessClockApi;
 
-public class StandardBusinessClock
+public class StandardBusinessClock : IProvideTheBusinessClock
 {
     private ISystemTime _clock;
 
