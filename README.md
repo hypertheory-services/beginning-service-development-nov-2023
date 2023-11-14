@@ -12,3 +12,8 @@
 1. Delete the folder `jeffs-code` from your class directory.
 2. Open a terminal and type `cd .\class`
 3. Paste this command: `gh repo clone hypertheory-services/beginning-service-development-nov-2023 jeffs-code`
+
+
+### Resources and Links and Stuff
+
+[Integraton Testing Without Alba](https://learn.microsoft.com/en-us/aspnet/core/test/integration-tests?view=aspnetcore-7.0)
