@@ -32,10 +32,19 @@ public class IssuesController : ControllerBase
         return Ok(response);
     }
 
-    [HttpGet("/issues/")]
-    public async Task<ActionResult> GetAllIssues()
+    [HttpGet("/{user}/issues")]
+    public async Task<ActionResult> GetIssuesFor(string user)
     {
-        var issues = await _catalog.GetAllIssuesAsync();
+        var issues = await _catalog.GetAllIssuesForUserAsync(user);
+        return Ok(new { issues });
+    }
+
+
+
+    [HttpGet("/issues/")]
+    public async Task<ActionResult> GetAllIssues([FromQuery] string user = "all")
+    {
+        var issues = await _catalog.GetAllIssuesAsync(user);
         return Ok(new { issues });
     }
 
