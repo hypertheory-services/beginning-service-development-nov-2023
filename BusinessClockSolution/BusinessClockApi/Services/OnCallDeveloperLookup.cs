@@ -14,7 +14,7 @@ public class OnCallDeveloperLookup
 
         if (_clock.IsOpen())
         {
-            return new OnCallDeveloperResponse("Bob Smith", "bob@aol.com", "555-1212");
+            return new OnCallDeveloperResponse("Lee Smith", "lee@aol.com", "555-1212");
         }
         else
         {

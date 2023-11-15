@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: business-clock-path
+  labels:
+    name: business-clock-path
+spec:
+  rules:
+  - host: cluster.hypertheory.com
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/claims/clock"
+        backend:
+          service:
+            name: business-clock-service
+            port: 
+              number: 80
+

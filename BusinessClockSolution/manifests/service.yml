@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: business-clock-service
+  
+spec:
+  selector:
+    app: business-clock
+  ports:
+  - port: 80
+    targetPort: 80

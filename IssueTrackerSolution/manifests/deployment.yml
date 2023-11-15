@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: issue-tracker-api
+spec:
+  selector:
+    matchLabels:
+      app: issue-tracker-api
+  template:
+    metadata:
+      labels:
+        app: issue-tracker-api
+    spec:
+      containers:
+      - name: issue-tracker-api
+        image: jeffrygonzalez/issue-tracker:nov-2024
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        env:
+          - name: ConnectionStrings__issues
+            value: "some real connection string here"
+          - name: ConnectionStrings__api
+            value: "http://business-clock-service"
+        ports:
+        - containerPort: 80
