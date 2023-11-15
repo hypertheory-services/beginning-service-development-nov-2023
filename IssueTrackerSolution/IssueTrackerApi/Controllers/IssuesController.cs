@@ -1,4 +1,5 @@
 ﻿using IssueTrackerApi.Models;
+using Marten;
 using Microsoft.AspNetCore.Mvc;
 
 namespace IssueTrackerApi.Controllers;
@@ -6,6 +7,13 @@ namespace IssueTrackerApi.Controllers;
 [ApiController]
 public class IssuesController : ControllerBase
 {
+    private readonly IDocumentSession _session;
+
+    public IssuesController(IDocumentSession session)
+    {
+        _session = session;
+    }
+
     [HttpPost("/software/{softwareId}/issues/high-priority-issues")]
 
     public async Task<ActionResult> AddIssueAsync([FromBody] IssueCreateModel request)
@@ -24,6 +32,8 @@ public class IssuesController : ControllerBase
             Priority = IssuePriority.HighPriority
         };
 
+        _session.Store(response);
+        await _session.SaveChangesAsync();
         return Ok(response);
     }
 

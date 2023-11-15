@@ -26,4 +26,4 @@ services:
       - TZ=America/New_York
       - ASPNETCORE_ENVIRONMENT=Development
 volumes:
-  db_data:
+  db_data: 
