@@ -6,21 +6,30 @@ namespace IssueTrackerApi.Services;
 public class IssuesCatalog
 {
     private readonly IDocumentSession _session;
+    private readonly ClockApiAdapter _adapter;
 
-    public IssuesCatalog(IDocumentSession session)
+    public IssuesCatalog(IDocumentSession session, ClockApiAdapter adapter)
     {
         _session = session;
+        _adapter = adapter;
     }
 
     public async Task<IssueResponseModel> FileIssueAsync(IssueCreateModel request, string user, IssuePriority priority)
     {
+        OnCallDeveloperApiResponse? supportInfo = null;
+        if (priority == IssuePriority.HighPriority)
+        {
+            supportInfo = await _adapter.GetOnCallDeveloperAsync();
+
+        }
         var response = new IssueResponseModel
         {
             Description = request.Description,
             Filed = DateTimeOffset.Now,
             Id = Guid.NewGuid(),
             Priority = priority,
-            User = user
+            User = user,
+            SupportInfo = supportInfo
         };
         _session.Store(response);
         await _session.SaveChangesAsync();
