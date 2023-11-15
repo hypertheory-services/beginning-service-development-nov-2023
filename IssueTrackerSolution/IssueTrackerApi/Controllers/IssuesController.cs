@@ -15,7 +15,16 @@ public class IssuesController : ControllerBase
         // save it to a database,
         // create some kind of response.
 
-        return Ok();
+        var response = new IssueResponseModel
+        {
+            Description = request.Description,
+            Filed = DateTimeOffset.Now,
+            User = "Joe", // identity
+            Id = Guid.NewGuid(),
+            Priority = IssuePriority.HighPriority
+        };
+
+        return Ok(response);
     }
 
 
