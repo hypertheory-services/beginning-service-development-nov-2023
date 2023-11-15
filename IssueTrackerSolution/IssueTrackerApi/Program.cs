@@ -1,3 +1,4 @@
+using IssueTrackerApi;
 using IssueTrackerApi.Services;
 using Marten;
 
@@ -22,7 +23,10 @@ builder.Services.AddHttpClient<ClockApiAdapter>(client =>
 {
     client.BaseAddress = new Uri(apiUrl);
 
-});
+}).AddPolicyHandler(SrePolicies.GetDefaultRetryPolicy())
+.AddPolicyHandler(SrePolicies.GetDefaultCircuitBreaker());
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

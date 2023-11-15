@@ -19,7 +19,15 @@ public class IssuesCatalog
         OnCallDeveloperApiResponse? supportInfo = null;
         if (priority == IssuePriority.HighPriority)
         {
-            supportInfo = await _adapter.GetOnCallDeveloperAsync();
+            try
+            {
+                supportInfo = await _adapter.GetOnCallDeveloperAsync();
+            }
+            catch (Exception)
+            {
+
+                supportInfo = new OnCallDeveloperApiResponse("Unable to Get Support Info - Call The Help Desk", "help@company.com", "888-1212");
+            }
 
         }
         var response = new IssueResponseModel
