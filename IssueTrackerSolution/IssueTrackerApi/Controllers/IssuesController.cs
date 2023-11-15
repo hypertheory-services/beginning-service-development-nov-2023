@@ -23,7 +23,23 @@ public class IssuesController : ControllerBase
         IssueResponseModel response = await _catalog.FileIssueAsync(request, user, IssuePriority.HighPriority);
         return Ok(response);
     }
+    [HttpPost("/software/{softwareId}/issues/question")]
+    public async Task<ActionResult> AddQuestion([FromBody] IssueCreateModel request)
+    {
 
+        var user = "Joe";
+        IssueResponseModel response = await _catalog.FileIssueAsync(request, user, IssuePriority.Question);
+        return Ok(response);
+    }
+
+    [HttpGet("/issues/")]
+    public async Task<ActionResult> GetAllIssues()
+    {
+        var issues = await _catalog.GetAllIssuesAsync();
+        return Ok(new { issues });
+    }
+
+    // public enum IssuePriority { Question, Bug, FeatureRequest, HighPriority }
 
     [HttpGet("/software")]
     public async Task<ActionResult> GetSoftwareCatalog()

@@ -26,4 +26,10 @@ public class IssuesCatalog
         await _session.SaveChangesAsync();
         return response;
     }
+
+    public async Task<IReadOnlyList<IssueResponseModel>> GetAllIssuesAsync()
+    {
+        var response = await _session.Query<IssueResponseModel>().ToListAsync();
+        return response;
+    }
 }
